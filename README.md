@@ -20,11 +20,19 @@ Connect to your server via SSH.
 
 `apt-get install build-essential cmake git libgit2-dev clang libncurses5-dev libncursesw5-dev zlib1g-dev pkg-config libssl-dev`
 
-#### 2.3 Install Rust
+#### 2.3 Create a user 'miner'
+
+`adduser miner`
+
+Switch to newly created user.
+
+`su - miner`
+
+#### 2.4 Install Rust
 
 `curl https://sh.rustup.rs -sSf | sh; source $HOME/.cargo/env`
 
-#### 2.4 Build Grin
+#### 2.5 Build Grin
 
 `git clone https://github.com/mimblewimble/grin.git`
 
@@ -44,7 +52,7 @@ To test, try to start it and have a look.
 
 What you see is the Grin TUI (Text-User-Interface). You can quit the TUI for now by pressing Q on your keyboard.
 
-#### 2.5 Add Grin to Environment
+#### 2.6 Add Grin to Environment
 
 `cd`
 
@@ -54,7 +62,7 @@ add the following line to the last line of your .profile file and save with _CTR
 
 `export PATH="$HOME/grin/target/release:$PATH"`
 
-#### 2.6 Prepare Configuration Files
+#### 2.7 Prepare Configuration Files
 
 `cd`
 
@@ -132,13 +140,9 @@ stratum_server_password = "YourPassword"
 
 _Please note: if you use more than 4 CPUs, you have to specify **nthreads** in your configuration file as well. If you follow this guide on a 4 CPU instance, you do not need to do this_
 
-**CTRL + O** to save.
+_Important: If you experience errors running `grin-miner` after changing this setting, try to set it back to `4`._
 
-Restart Ubuntu for all changes to take effect
-
-`reboot`
-
-Reconnect to your server via SSH.
+**Press CTRL + X** and then **Y[es]** to save.
 
 ### 4. Start Grin
 
